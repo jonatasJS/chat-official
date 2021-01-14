@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
   socket.on('new message', (data) => {
     // we tell the client to execute 'new message'
     console.log(data);
-    var message = data.replace("puta", "linda");
+    var message = data.replace("puta", "linda").replace("Puta", "Linda");
     socket.broadcast.emit('new message', {
       username: socket.username,
       message: message
