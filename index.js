@@ -19,7 +19,10 @@ var numUsers = 0;
 
 io.on('connection', (socket) => {
   var addedUser = false;
-  console.log(socket);
+  console.clear()
+  console.log(socket.handshake.headers);
+  console.log(socket.nsp.handshake.headers);
+  console.log(socket.nsp.Namespace.handshake.headers);
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', (data) => {
