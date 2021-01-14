@@ -57,7 +57,7 @@ $(function() {
     console.log(message)
     // Prevent markup from being injected into the message
     message = cleanInput(message);
-    message.replace("puta", "linda");
+    message.replace("puta", "linda").replace("Puta", "Linda");;
     console.log(message);
     // if there is a non-empty message and a socket connection
     if (message && connected) {
@@ -73,7 +73,8 @@ $(function() {
 
   // Log a message
     const log = (message, options) => {
-    var $el = $('<li>').addClass('log').text(message);
+      var data = message.replace("puta", "linda").replace("Puta", "Linda");
+    var $el = $('<li>').addClass('log').text(data);
     addMessageElement($el, options);
   }
 
@@ -91,7 +92,7 @@ $(function() {
       .text(data.username)
       .css('color', getUsernameColor(data.username));
     var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message.replace("puta", "linda"));
+      .text(data.message.replace("puta", "linda").replace("Puta", "Linda"););
 
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
