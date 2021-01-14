@@ -54,9 +54,11 @@ $(function() {
   // Sends a chat message
   const sendMessage = () => {
     var message = $inputMessage.val();
+    console.log(message)
     // Prevent markup from being injected into the message
     message = cleanInput(message);
     message.replace("puta", "linda");
+    console.log(message);
     // if there is a non-empty message and a socket connection
     if (message && connected) {
       $inputMessage.val('');
@@ -89,7 +91,7 @@ $(function() {
       .text(data.username)
       .css('color', getUsernameColor(data.username));
     var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message);
+      .text(data.message.replace("puta", "linda"));
 
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
@@ -193,6 +195,7 @@ $(function() {
 
   $window.keydown(event => {
     // Auto-focus the current input when a key is typed
+    console.log(event.which)
     if (!(event.ctrlKey || event.metaKey || event.altKey)) {
       $currentInput.focus();
     }
@@ -200,7 +203,7 @@ $(function() {
     if (event.which === 13) {
       if (username) {
         sendMessage();
-        socket.emit('Pare de digitar!');
+        socket.emit('stop typing');
         typing = false;
       } else {
         setUsername();
