@@ -19,7 +19,6 @@ var numUsers = 0;
 
 io.on('connection', (socket) => {
   var addedUser = false;
-  console.clear()
   console.log(socket.handshake.headers);
   console.log(socket.nsp.handshake.headers);
   console.log(socket.nsp.Namespace.handshake.headers);
