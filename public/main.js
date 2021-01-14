@@ -56,6 +56,7 @@ $(function() {
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
+    message.replace("puta", "linda");
     // if there is a non-empty message and a socket connection
     if (message && connected) {
       $inputMessage.val('');
